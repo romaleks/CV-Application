@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Input extends Component {
   render() {
-    return <div></div>
+    return <input type='text' placeholder={this.props.title} className='title'></input>
   }
 }
 
