@@ -7,7 +7,7 @@ export class Practice extends Component {
   render() {
     return (
       <div className='section'>
-        <h2 className='title'>Education</h2>
+        <h2 className='title'>Work Experience</h2>
         <Input title='Job Title' />
         <Input title='Company Name' />
         <Input title='City' />
