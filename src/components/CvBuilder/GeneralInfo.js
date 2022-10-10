@@ -6,11 +6,15 @@ import TextArea from '../Utils/TextArea'
 export class GeneralInfo extends Component {
   render() {
     return (
-      <div>
+      <div className='section'>
         <h2 className='title'>General Information</h2>
-        <Input title='First Name' />
-        <Input title='Last Name' />
-        <PhotoInput title='Photo' />
+        <div className='container'>
+          <div className='name'>
+            <Input title='First Name' />
+            <Input title='Last Name' />
+          </div>
+          <PhotoInput title='Photo' />
+        </div>
         <Input title='Professional Title' />
         <TextArea title='Desctiption' />
         <Input title='Phone Number' />

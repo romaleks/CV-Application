@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Button extends Component {
   render() {
-    return <div></div>
+    return <div className='button'>{this.props.title}</div>
   }
 }
 

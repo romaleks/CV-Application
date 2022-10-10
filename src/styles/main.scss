@@ -7,6 +7,12 @@
 body {
   font-family: sans-serif;
 }
+input,
+textarea {
+  display: block;
+  outline: none;
+  font-family: inherit;
+}
 // Header
 .header {
   background: #373639;
@@ -15,3 +21,50 @@ body {
   font-size: 1.5rem;
 }
 // Main
+.main {
+  display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1rem;
+  .cv-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #373639;
+    border-radius: 10px;
+    width: 600px;
+    .title {
+      margin: 0 0 0.5rem 0;
+    }
+    .container {
+      display: flex;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      border: 1px solid hsl(260, 3%, 80%);
+      border-radius: 5px;
+      margin: 0 0 0.5rem 0;
+      resize: none;
+      &:focus {
+        box-shadow: 0 0 3px #0006 inset;
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      .button {
+        background: #373639;
+        color: #fff;
+        font-size: 1.3rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -3,7 +3,11 @@ import CvBuilder from './CvBuilder/CvBuilder'
 
 class Main extends Component {
   render() {
-    return <CvBuilder />
+    return (
+      <div className='main'>
+        <CvBuilder />
+      </div>
+    )
   }
 }
 
