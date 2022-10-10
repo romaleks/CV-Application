@@ -7,9 +7,9 @@ export class Education extends Component {
     return (
       <div className='section'>
         <h2 className='title'>Education</h2>
-        <Input title='University or School name' />
+        <Input title='University or School Name' />
         <Input title='Degree' />
-        <Input title='Subject' />
+        <Input title='Course' />
         <Input title='From' />
         <Input title='To' />
         <div className='buttons'>
