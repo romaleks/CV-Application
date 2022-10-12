@@ -26,7 +26,14 @@ export class Education extends Component {
       )
     }
 
-    return <div className='section'>{educationAmount}</div>
+    return this.props.amount ? (
+      <div className='section'>{educationAmount}</div>
+    ) : (
+      <div className='section'>
+        <h2 className='title'>Education</h2>
+        <Button title='Add' onClick={addItem} section={section} />
+      </div>
+    )
   }
 }
 

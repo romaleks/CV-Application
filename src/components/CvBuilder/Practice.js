@@ -28,7 +28,14 @@ export class Practice extends Component {
       )
     }
 
-    return <div className='section'>{practiceAmount}</div>
+    return this.props.amount ? (
+      <div className='section'>{practiceAmount}</div>
+    ) : (
+      <div className='section'>
+        <h2 className='title'>Work Experience</h2>
+        <Button title='Add' onClick={addItem} section={section} />
+      </div>
+    )
   }
 }
 

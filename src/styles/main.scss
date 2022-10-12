@@ -57,14 +57,16 @@ textarea {
       display: flex;
       justify-content: flex-end;
       gap: 10px;
-      .button {
-        background: #373639;
-        color: #fff;
-        font-size: 1.3rem;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        cursor: pointer;
-      }
     }
   }
+}
+
+.button {
+  background: #373639;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
 }
