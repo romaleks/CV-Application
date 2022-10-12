@@ -5,21 +5,30 @@ import Button from '../Utils/Button'
 
 export class Practice extends Component {
   render() {
-    return (
-      <div className='section'>
-        <h2 className='title'>Work Experience</h2>
-        <Input title='Job Title' />
-        <Input title='Company Name' />
-        <Input title='City' />
-        <Input title='From' />
-        <Input title='To' />
-        <TextArea title='Description' />
-        <div className='buttons'>
-          <Button title='Add' />
-          <Button title='Delete' />
+    const { addItem, deleteItem, section } = this.props
+    const practiceAmount = []
+
+    for (let i = 0; i < this.props.amount; i++) {
+      const isLast = i === this.props.amount - 1
+
+      practiceAmount.push(
+        <div className='item' key={i}>
+          <h2 className='title'>Work Experience</h2>
+          <Input title='Job Title' />
+          <Input title='Company Name' />
+          <Input title='City' />
+          <Input title='From' />
+          <Input title='To' />
+          <TextArea title='Description' />
+          <div className='buttons'>
+            {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
+            <Button title='Delete' onClick={deleteItem} section={section} />
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+
+    return <div className='section'>{practiceAmount}</div>
   }
 }
 

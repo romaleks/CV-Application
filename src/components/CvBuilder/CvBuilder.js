@@ -41,6 +41,7 @@ export class CvBuilder extends Component {
         <Practice
           amount={this.state.practiceAmount}
           addItem={this.addItem}
+          deleteItem={this.deleteItem}
           section='practiceAmount'
         />
       </div>

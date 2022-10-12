@@ -8,6 +8,8 @@ export class Education extends Component {
     const educationAmount = []
 
     for (let i = 0; i < this.props.amount; i++) {
+      const isLast = i === this.props.amount - 1
+
       educationAmount.push(
         <div className='item' key={i}>
           <h2 className='title'>Education</h2>
@@ -17,7 +19,7 @@ export class Education extends Component {
           <Input title='From' />
           <Input title='To' />
           <div className='buttons'>
-            <Button title='Add' onClick={addItem} section={section} />
+            {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
             <Button title='Delete' onClick={deleteItem} section={section} />
           </div>
         </div>
