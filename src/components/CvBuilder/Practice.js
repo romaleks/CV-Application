@@ -5,31 +5,30 @@ import Button from '../Utils/Button'
 
 export class Practice extends Component {
   render() {
-    const { addItem, deleteItem, section } = this.props
-    const practiceAmount = []
+    const { items, addItem, deleteItem, section } = this.props
 
-    for (let i = 0; i < this.props.amount; i++) {
-      const isLast = i === this.props.amount - 1
+    return this.props.items.length ? (
+      <div className='section'>
+        {items.map((id, index) => {
+          const isLast = index === this.props.items.length - 1
 
-      practiceAmount.push(
-        <div className='item' key={i}>
-          <h2 className='title'>Work Experience</h2>
-          <Input title='Job Title' />
-          <Input title='Company Name' />
-          <Input title='City' />
-          <Input title='From' />
-          <Input title='To' />
-          <TextArea title='Description' />
-          <div className='buttons'>
-            {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
-            <Button title='Delete' onClick={deleteItem} section={section} />
-          </div>
-        </div>
-      )
-    }
-
-    return this.props.amount ? (
-      <div className='section'>{practiceAmount}</div>
+          return (
+            <div className='item' key={id}>
+              <h2 className='title'>Work Experience #{index + 1}</h2>
+              <Input title='Job Title' />
+              <Input title='Company Name' />
+              <Input title='City' />
+              <Input title='From' />
+              <Input title='To' />
+              <TextArea title='Description' />
+              <div className='buttons'>
+                {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
+                <Button title='Delete' onClick={deleteItem} section={section} id={id} />
+              </div>
+            </div>
+          )
+        })}
+      </div>
     ) : (
       <div className='section'>
         <h2 className='title'>Work Experience</h2>

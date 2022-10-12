@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uniqid from 'uniqid'
 import GeneralInfo from './GeneralInfo'
 import Education from './Education'
 import Practice from './Practice'
@@ -8,8 +9,8 @@ export class CvBuilder extends Component {
     super()
 
     this.state = {
-      educationAmount: 1,
-      practiceAmount: 1,
+      educationItems: [uniqid()],
+      practiceItems: [uniqid()],
     }
 
     this.addItem = this.addItem.bind(this)
@@ -18,13 +19,14 @@ export class CvBuilder extends Component {
 
   addItem(section) {
     this.setState({
-      [section]: this.state[section] + 1,
+      [section]: [...this.state[section], uniqid()],
     })
   }
 
-  deleteItem(section) {
+  deleteItem(section, id) {
+    const newArray = this.state[section].filter(item => item !== id)
     this.setState({
-      [section]: this.state[section] - 1,
+      [section]: newArray,
     })
   }
 
@@ -33,16 +35,16 @@ export class CvBuilder extends Component {
       <div className='cv-builder'>
         <GeneralInfo />
         <Education
-          amount={this.state.educationAmount}
+          items={this.state.educationItems}
           addItem={this.addItem}
           deleteItem={this.deleteItem}
-          section='educationAmount'
+          section='educationItems'
         />
         <Practice
-          amount={this.state.practiceAmount}
+          items={this.state.practiceItems}
           addItem={this.addItem}
           deleteItem={this.deleteItem}
-          section='practiceAmount'
+          section='practiceItems'
         />
       </div>
     )
