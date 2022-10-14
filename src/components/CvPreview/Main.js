@@ -14,7 +14,9 @@ export class main extends Component {
         </div>
         <div className='section'>
           <h2 className='title'>Work Experience</h2>
-          <PracticeItem />
+          <div className='items'>
+            <PracticeItem />
+          </div>
         </div>
       </div>
     )
