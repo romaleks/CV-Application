@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+li {
+  list-style: none;
+}
 body {
   font-family: sans-serif;
 }
@@ -23,40 +26,119 @@ textarea {
 // Main
 .main {
   display: flex;
+  gap: 2rem;
   max-width: 1500px;
   margin: 0 auto;
   padding: 1rem;
-  .cv-builder {
+}
+
+.cv-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #373639;
+  border-radius: 10px;
+  width: 600px;
+  .title {
+    margin: 0 0 0.5rem 0;
+  }
+  .container {
+    display: flex;
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: 1px solid hsl(260, 3%, 80%);
+    border-radius: 5px;
+    margin: 0 0 0.5rem 0;
+    resize: none;
+    &:focus {
+      box-shadow: 0 0 3px #0006 inset;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+.cv-preview {
+  box-shadow: 0 0 5px hsl(260, 3%, 72%);
+  display: flex;
+  width: 600px;
+  height: 800px;
+  position: sticky;
+  top: 1rem;
+  .cv-sidebar {
+    padding: 15rem 1.5rem 1.5rem;
+    color: #fff;
+    background: #373639;
+    min-width: 210px;
+    .description {
+      color: #cbcbcd;
+    }
+  }
+  .cv-main {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding: 1.5rem;
-    border: 1px solid #373639;
-    border-radius: 10px;
-    width: 600px;
-    .title {
-      margin: 0 0 0.5rem 0;
+    padding: 15rem 2rem 2rem;
+    .job {
+      margin: 5px 0;
     }
-    .container {
+  }
+  .cv-header {
+    display: flex;
+    gap: 3rem;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    max-height: 90px;
+    padding: 1rem;
+    background: #ececee;
+    .photo {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 100px;
+      transform: translateY(-2rem);
+    }
+    .name {
+      font-size: 2.2rem;
+    }
+    .prof-title {
+      letter-spacing: 3px;
+    }
+  }
+  .section {
+    .items {
       display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
-      border: 1px solid hsl(260, 3%, 80%);
-      border-radius: 5px;
-      margin: 0 0 0.5rem 0;
-      resize: none;
-      &:focus {
-        box-shadow: 0 0 3px #0006 inset;
+    .title {
+      margin: 0 0 1rem 0;
+      position: relative;
+      &:after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        left: 0;
+        bottom: -2px;
+        background: #cbcbcd;
+        position: absolute;
       }
     }
-    .buttons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
+    .sub-title {
+      font-size: 1.2rem;
+    }
+    .description {
+      line-height: 1.4;
+      font-size: 0.8rem;
     }
   }
 }
