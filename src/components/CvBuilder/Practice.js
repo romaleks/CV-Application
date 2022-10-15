@@ -5,7 +5,7 @@ import Button from '../Utils/Button'
 
 export class Practice extends Component {
   render() {
-    const { items, addItem, deleteItem, section } = this.props
+    const { items, addItem, deleteItem, section, onChange } = this.props
 
     return this.props.items.length ? (
       <div className='section'>
@@ -15,12 +15,48 @@ export class Practice extends Component {
           return (
             <div className='item' key={item.id}>
               <h2 className='title'>Work Experience #{index + 1}</h2>
-              <Input title='Job Title' />
-              <Input title='Company Name' />
-              <Input title='City' />
-              <Input title='From' />
-              <Input title='To' />
-              <TextArea title='Description' />
+              <Input
+                title='Job Title'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='title'
+              />
+              <Input
+                title='Company Name'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='companyName'
+              />
+              <Input
+                title='City'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='city'
+              />
+              <Input
+                title='From'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='from'
+              />
+              <Input
+                title='To'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='to'
+              />
+              <TextArea
+                title='Description'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='description'
+              />
               <div className='buttons'>
                 {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
                 <Button

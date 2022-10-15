@@ -4,7 +4,7 @@ import Button from '../Utils/Button'
 
 export class Education extends Component {
   render() {
-    const { items, addItem, deleteItem, section } = this.props
+    const { items, addItem, deleteItem, section, onChange } = this.props
 
     return this.props.items.length ? (
       <div className='section'>
@@ -14,11 +14,41 @@ export class Education extends Component {
           return (
             <div className='item' key={item.id}>
               <h2 className='title'>Education #{index + 1}</h2>
-              <Input title='University or School Name' />
-              <Input title='Degree' />
-              <Input title='Course' />
-              <Input title='From' />
-              <Input title='To' />
+              <Input
+                title='Degree'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='degree'
+              />
+              <Input
+                title='University or School Name'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='universityName'
+              />
+              <Input
+                title='Course'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='course'
+              />
+              <Input
+                title='From'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='from'
+              />
+              <Input
+                title='To'
+                onChange={onChange}
+                section={section}
+                index={index}
+                id='to'
+              />
               <div className='buttons'>
                 {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
                 <Button

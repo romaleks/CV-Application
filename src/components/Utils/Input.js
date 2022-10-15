@@ -2,7 +2,16 @@ import React, { Component } from 'react'
 
 export class Input extends Component {
   render() {
-    return <input type='text' placeholder={this.props.title} className='title'></input>
+    const { onChange, title, section, index, id } = this.props
+
+    return (
+      <input
+        type='text'
+        placeholder={title}
+        className='title'
+        onChange={e => onChange(e, section, index, id)}
+      ></input>
+    )
   }
 }
 

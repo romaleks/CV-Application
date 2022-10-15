@@ -8,6 +8,18 @@ class Main extends Component {
     super()
 
     this.state = {
+      profile: [
+        {
+          firstName: '',
+          lastName: '',
+          title: '',
+          photo: '',
+          description: '',
+          phone: '',
+          email: '',
+          address: '',
+        },
+      ],
       educationItems: [
         {
           id: uniqid(),
@@ -33,6 +45,7 @@ class Main extends Component {
 
     this.addItem = this.addItem.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
+    this.handleTextEdit = this.handleTextEdit.bind(this)
   }
 
   addItem(section) {
@@ -71,6 +84,15 @@ class Main extends Component {
     })
   }
 
+  handleTextEdit(e, section, index, input) {
+    if (!index) index = 0
+    const item = { ...this.state[section][index] }
+    item[input] = e.target.value
+    this.setState({
+      [section]: [item],
+    })
+  }
+
   render() {
     return (
       <div className='main'>
@@ -79,8 +101,10 @@ class Main extends Component {
           practiceItems={this.state.practiceItems}
           addItem={this.addItem}
           deleteItem={this.deleteItem}
+          handleTextEdit={this.handleTextEdit}
         />
         <CvPreview
+          profile={this.state.profile}
           educationItems={this.state.educationItems}
           practiceItems={this.state.practiceItems}
         />

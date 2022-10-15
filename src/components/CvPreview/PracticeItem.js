@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 
 export class PracticeItem extends Component {
   render() {
+    const { title, name, from, to, city, description } = this.props
+
     return (
       <div className='item'>
-        <h3 className='sub-title'>{this.props.title}</h3>
+        <h3 className='sub-title'>{title}</h3>
         <div className='job'>
-          {this.props.name} | {this.props.from} - {this.props.to} | {this.props.city}
+          {name} | {from} - {to} | {city}
         </div>
-        <div className='description'>{this.props.description}</div>
+        <div className='description'>{description}</div>
       </div>
     )
   }

@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 
 export class Header extends Component {
   render() {
+    const { profile } = this.props
+
     return (
       <div className='cv-header'>
-        <div className='photo'></div>
+        <div className='photo'>{profile[0].photo}</div>
         <div className='names'>
           <div className='name'>
-            {this.props.firstName}
-            {this.props.LastName}
+            {profile[0].firstName} {profile[0].lastName}
           </div>
-          <div className='prof-title'></div>
+          <div className='prof-title'>{profile[0].title}</div>
         </div>
       </div>
     )

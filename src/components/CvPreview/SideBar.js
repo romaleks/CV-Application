@@ -11,7 +11,14 @@ export class SideBar extends Component {
           <h2 className='title'>Education</h2>
           <div className='items'>
             {items.map(item => (
-              <EducationItem key={item.id} />
+              <EducationItem
+                key={item.id}
+                degree={item.degree}
+                name={item.universityName}
+                course={item.course}
+                from={item.from}
+                to={item.to}
+              />
             ))}
           </div>
         </div>
