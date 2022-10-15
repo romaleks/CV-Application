@@ -3,13 +3,16 @@ import EducationItem from './EducationItem'
 
 export class SideBar extends Component {
   render() {
+    const { items } = this.props
+
     return (
       <div className='cv-sidebar'>
         <div className='section'>
           <h2 className='title'>Education</h2>
           <div className='items'>
-            <EducationItem />
-            <EducationItem />
+            {items.map(item => (
+              <EducationItem key={item.id} />
+            ))}
           </div>
         </div>
       </div>

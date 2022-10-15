@@ -9,11 +9,11 @@ export class Practice extends Component {
 
     return this.props.items.length ? (
       <div className='section'>
-        {items.map((id, index) => {
+        {items.map((item, index) => {
           const isLast = index === this.props.items.length - 1
 
           return (
-            <div className='item' key={id}>
+            <div className='item' key={item.id}>
               <h2 className='title'>Work Experience #{index + 1}</h2>
               <Input title='Job Title' />
               <Input title='Company Name' />
@@ -23,7 +23,12 @@ export class Practice extends Component {
               <TextArea title='Description' />
               <div className='buttons'>
                 {isLast ? <Button title='Add' onClick={addItem} section={section} /> : ''}
-                <Button title='Delete' onClick={deleteItem} section={section} id={id} />
+                <Button
+                  title='Delete'
+                  onClick={deleteItem}
+                  section={section}
+                  id={item.id}
+                />
               </div>
             </div>
           )

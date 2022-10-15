@@ -8,9 +8,9 @@ export class Header extends Component {
         <div className='names'>
           <div className='name'>
             {this.props.firstName}
-            {this.props.LastName}Alexandr Romanov
+            {this.props.LastName}
           </div>
-          <div className='prof-title'>Web Developer</div>
+          <div className='prof-title'></div>
         </div>
       </div>
     )
