@@ -86,10 +86,10 @@ class Main extends Component {
 
   handleTextEdit(e, section, index, input) {
     if (!index) index = 0
-    const item = { ...this.state[section][index] }
-    item[input] = e.target.value
+    const items = [...this.state[section]]
+    items[index][input] = e.target.value
     this.setState({
-      [section]: [item],
+      [section]: items,
     })
   }
 
