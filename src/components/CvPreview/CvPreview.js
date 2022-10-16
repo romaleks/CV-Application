@@ -10,7 +10,7 @@ export class CvPreview extends Component {
     return (
       <div className='cv-preview'>
         <Header profile={profile} />
-        <SideBar items={educationItems} />
+        <SideBar profile={profile} items={educationItems} />
         <Main profile={profile} items={practiceItems} />
       </div>
     )

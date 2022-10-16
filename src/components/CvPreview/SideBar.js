@@ -1,12 +1,34 @@
 import React, { Component } from 'react'
 import EducationItem from './EducationItem'
+import { ReactComponent as PhoneIcon } from '../../assets/phone.svg'
+import { ReactComponent as AddressIcon } from '../../assets/home.svg'
+import { ReactComponent as EmailIcon } from '../../assets/email.svg'
 
 export class SideBar extends Component {
   render() {
-    const { items } = this.props
+    const { profile, items } = this.props
 
     return (
       <div className='cv-sidebar'>
+        <div className='section'>
+          <h2 className='title'>Contacts</h2>
+          <div className='items'>
+            <div className='item'>
+              <div className='icon-title'>
+                <PhoneIcon />
+                {profile[0].phone}
+              </div>
+              <div className='icon-title'>
+                <EmailIcon />
+                {profile[0].email}
+              </div>
+              <div className='icon-title'>
+                <AddressIcon />
+                {profile[0].address}
+              </div>
+            </div>
+          </div>
+        </div>
         <div className='section'>
           <h2 className='title'>Education</h2>
           <div className='items'>

@@ -77,9 +77,17 @@ textarea {
     padding: 15rem 1.5rem 1.5rem;
     color: #fff;
     background: #373639;
-    min-width: 210px;
+    min-width: 230px;
     .description {
       color: #cbcbcd;
+    }
+    .icon-title {
+      margin: 0 0 5px 0;
+      font-size: 0.8rem;
+      svg {
+        height: 20px;
+        transform: translateY(2px);
+      }
     }
   }
   .cv-main {
@@ -133,6 +141,12 @@ textarea {
         background: #cbcbcd;
         position: absolute;
       }
+    }
+    .icon-title {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 3px;
     }
     .sub-title {
       font-size: 1.2rem;
