@@ -5,12 +5,18 @@ import Practice from './Practice'
 
 export class CvBuilder extends Component {
   render() {
-    const { educationItems, practiceItems, addItem, deleteItem, handleTextEdit } =
-      this.props
+    const {
+      educationItems,
+      practiceItems,
+      addItem,
+      deleteItem,
+      handleTextEdit,
+      handlePhotoEdit,
+    } = this.props
 
     return (
       <div className='cv-builder'>
-        <GeneralInfo onChange={handleTextEdit} />
+        <GeneralInfo onChange={handleTextEdit} onPhotoChange={handlePhotoEdit} />
         <Education
           items={educationItems}
           addItem={addItem}

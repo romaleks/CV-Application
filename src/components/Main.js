@@ -13,7 +13,7 @@ class Main extends Component {
           firstName: '',
           lastName: '',
           title: '',
-          photo: '',
+          photo: null,
           description: '',
           phone: '',
           email: '',
@@ -46,6 +46,7 @@ class Main extends Component {
     this.addItem = this.addItem.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
     this.handleTextEdit = this.handleTextEdit.bind(this)
+    this.handlePhotoEdit = this.handlePhotoEdit.bind(this)
   }
 
   addItem(section) {
@@ -93,6 +94,19 @@ class Main extends Component {
     })
   }
 
+  handlePhotoEdit(e) {
+    const file = e.target.files[0]
+    const reader = new FileReader()
+    const items = [...this.state.profile]
+    reader.onload = () => {
+      items[0].photo = reader.result
+      this.setState({
+        profile: items,
+      })
+    }
+    reader.readAsDataURL(file)
+  }
+
   render() {
     return (
       <div className='main'>
@@ -102,6 +116,7 @@ class Main extends Component {
           addItem={this.addItem}
           deleteItem={this.deleteItem}
           handleTextEdit={this.handleTextEdit}
+          handlePhotoEdit={this.handlePhotoEdit}
         />
         <CvPreview
           profile={this.state.profile}

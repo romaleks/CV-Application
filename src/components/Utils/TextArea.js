@@ -8,7 +8,6 @@ export class TextArea extends Component {
       <textarea
         type='text'
         placeholder={title}
-        className='title'
         onChange={e => onChange(e, section, index, id)}
       ></textarea>
     )

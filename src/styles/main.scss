@@ -40,11 +40,33 @@ textarea {
   border: 1px solid #373639;
   border-radius: 10px;
   width: 600px;
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
   .title {
     margin: 0 0 0.5rem 0;
   }
   .container {
     display: flex;
+    gap: 1rem;
+    .name {
+      flex: 1;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid hsl(260, 3%, 80%);
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      svg {
+        height: 45px;
+      }
+    }
   }
   input,
   textarea {
@@ -53,10 +75,12 @@ textarea {
     font-size: 1.2rem;
     border: 1px solid hsl(260, 3%, 80%);
     border-radius: 5px;
-    margin: 0 0 0.5rem 0;
     resize: none;
     &:focus {
       box-shadow: 0 0 3px #0006 inset;
+    }
+    &#photo {
+      display: none;
     }
   }
   .buttons {
@@ -113,6 +137,7 @@ textarea {
       width: 120px;
       height: 120px;
       background: #fff;
+      border: 3px solid hsl(260, 3%, 72%);
       border-radius: 100px;
       transform: translateY(-2rem);
     }

@@ -6,7 +6,11 @@ export class Header extends Component {
 
     return (
       <div className='cv-header'>
-        <div className='photo'>{profile[0].photo}</div>
+        {profile[0].photo ? (
+          <img src={profile[0].photo} alt='Avatar' className='photo'></img>
+        ) : (
+          <div className='photo'></div>
+        )}
         <div className='names'>
           <div className='name'>
             {profile[0].firstName} {profile[0].lastName}

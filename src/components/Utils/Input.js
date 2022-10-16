@@ -8,7 +8,6 @@ export class Input extends Component {
       <input
         type='text'
         placeholder={title}
-        className='title'
         onChange={e => onChange(e, section, index, id)}
       ></input>
     )
