@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/CV-Application/static/css/main.2522322a.css",
+    "main.js": "/CV-Application/static/js/main.dcec39c8.js",
+    "index.html": "/CV-Application/index.html",
+    "static/media/add.svg": "/CV-Application/static/media/add.3b3d374ac4417ff7bf2c568ad2ca260c.svg",
+    "static/media/email.svg": "/CV-Application/static/media/email.bed73455ae927890d9f87293540ea524.svg",
+    "static/media/phone.svg": "/CV-Application/static/media/phone.6d4f86aa3857174efb53db62c03f8f14.svg",
+    "static/media/home.svg": "/CV-Application/static/media/home.35226803eb35c547eecb220116d529af.svg",
+    "main.2522322a.css.map": "/CV-Application/static/css/main.2522322a.css.map",
+    "main.dcec39c8.js.map": "/CV-Application/static/js/main.dcec39c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2522322a.css",
+    "static/js/main.dcec39c8.js"
+  ]
+}
