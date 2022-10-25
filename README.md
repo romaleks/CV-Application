@@ -27,6 +27,7 @@ This project is a part of the "The Odin Project" [curriculum](https://www.theodi
 
 - React
 - React State and Props
+- React Hooks
 - Sass
 - Prettier
 - Webpack
