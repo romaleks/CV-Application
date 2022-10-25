@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class TextArea extends Component {
-  render() {
-    const { onChange, title, section, index, id } = this.props
+const TextArea = props => {
+  const { onChange, title, section, index, id } = props
 
-    return (
-      <textarea
-        type='text'
-        placeholder={title}
-        onChange={e => onChange(e, section, index, id)}
-      ></textarea>
-    )
-  }
+  return (
+    <textarea
+      type='text'
+      placeholder={title}
+      onChange={e => onChange(e, section, index, id)}
+    ></textarea>
+  )
 }
 
 export default TextArea

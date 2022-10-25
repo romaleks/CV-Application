@@ -1,23 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { ReactComponent as AddIcon } from '../../assets/add.svg'
 
-export class PhotoInput extends Component {
-  render() {
-    const { onChange } = this.props
+const PhotoInput = props => {
+  const { onChange } = props
 
-    return (
-      <label>
-        Choose Photo
-        <AddIcon />
-        <input
-          type='file'
-          accept='image/*'
-          id='photo'
-          onChange={e => onChange(e)}
-        ></input>
-      </label>
-    )
-  }
+  return (
+    <label>
+      Choose Photo
+      <AddIcon />
+      <input type='file' accept='image/*' id='photo' onChange={e => onChange(e)}></input>
+    </label>
+  )
 }
 
 export default PhotoInput

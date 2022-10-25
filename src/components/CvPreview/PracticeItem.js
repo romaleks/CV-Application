@@ -1,19 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class PracticeItem extends Component {
-  render() {
-    const { title, name, from, to, city, description } = this.props
+const PracticeItem = props => {
+  const { title, name, from, to, city, description } = props
 
-    return (
-      <div className='item'>
-        <h3 className='sub-title'>{title}</h3>
-        <div className='job'>
-          {name} | {from} - {to} | {city}
-        </div>
-        <div className='description'>{description}</div>
+  return (
+    <div className='item'>
+      <h3 className='sub-title'>{title}</h3>
+      <div className='job'>
+        {name} | {from} - {to} | {city}
       </div>
-    )
-  }
+      <div className='description'>{description}</div>
+    </div>
+  )
 }
 
 export default PracticeItem

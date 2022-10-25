@@ -1,59 +1,48 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import uniqid from 'uniqid'
 import CvBuilder from './CvBuilder/CvBuilder'
 import CvPreview from './CvPreview/CvPreview'
 
-class Main extends Component {
-  constructor() {
-    super()
+const Main = () => {
+  const [profile, setProfile] = useState([
+    {
+      firstName: '',
+      lastName: '',
+      title: '',
+      photo: null,
+      description: '',
+      phone: '',
+      email: '',
+      address: '',
+    },
+  ])
 
-    this.state = {
-      profile: [
-        {
-          firstName: '',
-          lastName: '',
-          title: '',
-          photo: null,
-          description: '',
-          phone: '',
-          email: '',
-          address: '',
-        },
-      ],
-      educationItems: [
-        {
-          id: uniqid(),
-          UniversityName: '',
-          degree: '',
-          course: '',
-          from: '',
-          to: '',
-        },
-      ],
-      practiceItems: [
-        {
-          id: uniqid(),
-          title: '',
-          companyName: '',
-          city: '',
-          from: '',
-          to: '',
-          description: '',
-        },
-      ],
-    }
+  const [education, setEducation] = useState([
+    {
+      id: uniqid(),
+      UniversityName: '',
+      degree: '',
+      course: '',
+      from: '',
+      to: '',
+    },
+  ])
 
-    this.addItem = this.addItem.bind(this)
-    this.deleteItem = this.deleteItem.bind(this)
-    this.handleTextEdit = this.handleTextEdit.bind(this)
-    this.handlePhotoEdit = this.handlePhotoEdit.bind(this)
-  }
+  const [practice, setPractice] = useState([
+    {
+      id: uniqid(),
+      title: '',
+      companyName: '',
+      city: '',
+      from: '',
+      to: '',
+      description: '',
+    },
+  ])
 
-  addItem(section) {
-    let newItem = {}
-
-    if (section === 'educationItems') {
-      newItem = {
+  const addItem = section => {
+    if (section === 'education') {
+      const newItem = {
         id: uniqid(),
         UniversityName: '',
         degree: '',
@@ -61,8 +50,10 @@ class Main extends Component {
         from: '',
         to: '',
       }
+
+      setEducation([...education, newItem])
     } else {
-      newItem = {
+      const newItem = {
         id: uniqid(),
         title: '',
         companyName: '',
@@ -71,61 +62,61 @@ class Main extends Component {
         to: '',
         description: '',
       }
+
+      setPractice([...practice, newItem])
     }
-
-    this.setState({
-      [section]: [...this.state[section], newItem],
-    })
   }
 
-  deleteItem(section, id) {
-    const newArray = this.state[section].filter(item => item.id !== id)
-    this.setState({
-      [section]: newArray,
-    })
+  const deleteItem = (section, id) => {
+    if (section === 'education') {
+      const newArray = education.filter(item => item.id !== id)
+      setEducation(newArray)
+    } else {
+      const newArray = practice.filter(item => item.id !== id)
+      setPractice(newArray)
+    }
   }
 
-  handleTextEdit(e, section, index, input) {
-    if (!index) index = 0
-    const items = [...this.state[section]]
-    items[index][input] = e.target.value
-    this.setState({
-      [section]: items,
-    })
+  const handleTextEdit = (e, section, index = 0, input) => {
+    if (section === 'profile') {
+      const items = [...profile]
+      items[index][input] = e.target.value
+      setProfile(items)
+    } else if (section === 'education') {
+      const items = [...education]
+      items[index][input] = e.target.value
+      setEducation(items)
+    } else {
+      const items = [...practice]
+      items[index][input] = e.target.value
+      setPractice(items)
+    }
   }
 
-  handlePhotoEdit(e) {
+  const handlePhotoEdit = e => {
     const file = e.target.files[0]
     const reader = new FileReader()
-    const items = [...this.state.profile]
+    const items = [...profile]
     reader.onload = () => {
       items[0].photo = reader.result
-      this.setState({
-        profile: items,
-      })
+      setProfile(items)
     }
     reader.readAsDataURL(file)
   }
 
-  render() {
-    return (
-      <div className='main'>
-        <CvBuilder
-          educationItems={this.state.educationItems}
-          practiceItems={this.state.practiceItems}
-          addItem={this.addItem}
-          deleteItem={this.deleteItem}
-          handleTextEdit={this.handleTextEdit}
-          handlePhotoEdit={this.handlePhotoEdit}
-        />
-        <CvPreview
-          profile={this.state.profile}
-          educationItems={this.state.educationItems}
-          practiceItems={this.state.practiceItems}
-        />
-      </div>
-    )
-  }
+  return (
+    <div className='main'>
+      <CvBuilder
+        education={education}
+        practice={practice}
+        addItem={addItem}
+        deleteItem={deleteItem}
+        handleTextEdit={handleTextEdit}
+        handlePhotoEdit={handlePhotoEdit}
+      />
+      <CvPreview profile={profile} education={education} practice={practice} />
+    </div>
+  )
 }
 
 export default Main

@@ -1,20 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Main from './Main'
 import SideBar from './SideBar'
 import Header from './Header'
 
-export class CvPreview extends Component {
-  render() {
-    const { profile, educationItems, practiceItems } = this.props
+const CvPreview = props => {
+  const { profile, education, practice } = props
 
-    return (
-      <div className='cv-preview'>
-        <Header profile={profile} />
-        <SideBar profile={profile} items={educationItems} />
-        <Main profile={profile} items={practiceItems} />
-      </div>
-    )
-  }
+  return (
+    <div className='cv-preview'>
+      <Header profile={profile} />
+      <SideBar profile={profile} items={education} />
+      <Main profile={profile} items={practice} />
+    </div>
+  )
 }
 
 export default CvPreview
